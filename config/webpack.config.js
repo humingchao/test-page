@@ -40,6 +40,10 @@ const useTypeScript = fs.existsSync(paths.appTsConfig);
 // style files regexes
 const cssRegex = /\.css$/;
 const cssModuleRegex = /\.module\.css$/;
+
+const lessRegex = /\.less$/;
+const lessModuleRegex = /\.module\.less$/;
+
 const sassRegex = /\.(scss|sass)$/;
 const sassModuleRegex = /\.module\.(scss|sass)$/;
 
@@ -109,13 +113,28 @@ module.exports = function(webpackEnv) {
         },
       },
     ].filter(Boolean);
+    // if (preProcessor) {
+    //   loaders.push({
+    //     loader: require.resolve(preProcessor),
+    //     options: {
+    //       sourceMap: isEnvProduction && shouldUseSourceMap,
+    //     },
+    //   });
+    // }
     if (preProcessor) {
-      loaders.push({
-        loader: require.resolve(preProcessor),
-        options: {
-          sourceMap: isEnvProduction && shouldUseSourceMap,
-        },
-      });
+      let loader = require.resolve(preProcessor)
+      if (preProcessor === "less-loader") {
+        loader = {
+          loader,
+          options: {
+            modifyVars: { //自定义主题
+              'primary-color': 'black',
+            },
+            javascriptEnabled: true,
+          }
+        }
+      }
+      loaders.push(loader);
     }
     return loaders;
   };
@@ -451,6 +470,29 @@ module.exports = function(webpackEnv) {
                   getLocalIdent: getCSSModuleLocalIdent,
                 },
                 'sass-loader'
+              ),
+            },
+            {
+              test: lessRegex,
+              exclude: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                },
+                'less-loader'
+              ),
+            },
+            {
+              test: lessModuleRegex,
+              use: getStyleLoaders(
+                {
+                  importLoaders: 2,
+                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
+                'less-loader'
               ),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
