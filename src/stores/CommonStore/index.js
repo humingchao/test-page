@@ -2,7 +2,7 @@ import { observable, action, computed, flow } from 'mobx';
 import Axios from 'axios';
 
 class CommonStore {
-    @observable common;
+    @observable common = [];
     @observable pathname = [];
     @observable obj = [1,2,3];
     @observable githubProjects = [];
@@ -25,7 +25,7 @@ class CommonStore {
     }
 
     @action changePassword = (value) => {
-        this.common = value;
+        this.common.push(value);
         console.log(value,"新value")
     }
 

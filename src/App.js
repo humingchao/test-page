@@ -1,29 +1,14 @@
-import React from 'react';
-import { observer, inject } from 'mobx-react';
-import './App.css';
-import {Button} from 'antd'
+import React, { Component, Fragment } from 'react';
+import Routes from './routes';
 
-@inject('CommonStore', 'RoleStore')
-@observer
-class App extends React.Component {
-  
-  hello = () => {
-    this.props.CommonStore.changePassword(888)
-  }
-
-  render() {
-    const {CommonStore} = this.props
-    return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            {CommonStore.common}
-          </p>
-          <Button type="primary" onClick={this.hello}>123</Button>
-        </header>
-      </div>
-    );
-  }
+class App extends Component {
+	render() {
+		return (
+			<Fragment>
+				<Routes/>
+			</Fragment>
+		)
+	}
 }
 
 export default App;
