@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/qier-player-demo/static/css/main.ff763322.chunk.css",
+    "main.js": "/qier-player-demo/static/js/main.897492cd.chunk.js",
+    "main.js.map": "/qier-player-demo/static/js/main.897492cd.chunk.js.map",
+    "runtime-main.js": "/qier-player-demo/static/js/runtime-main.ab75e36d.js",
+    "runtime-main.js.map": "/qier-player-demo/static/js/runtime-main.ab75e36d.js.map",
+    "static/js/2.c74b1641.chunk.js": "/qier-player-demo/static/js/2.c74b1641.chunk.js",
+    "static/js/2.c74b1641.chunk.js.map": "/qier-player-demo/static/js/2.c74b1641.chunk.js.map",
+    "index.html": "/qier-player-demo/index.html",
+    "precache-manifest.81f3912f8564d51da7287b034693673a.js": "/qier-player-demo/precache-manifest.81f3912f8564d51da7287b034693673a.js",
+    "service-worker.js": "/qier-player-demo/service-worker.js",
+    "static/css/main.ff763322.chunk.css.map": "/qier-player-demo/static/css/main.ff763322.chunk.css.map",
+    "static/js/2.c74b1641.chunk.js.LICENSE.txt": "/qier-player-demo/static/js/2.c74b1641.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ab75e36d.js",
+    "static/js/2.c74b1641.chunk.js",
+    "static/css/main.ff763322.chunk.css",
+    "static/js/main.897492cd.chunk.js"
+  ]
+}
