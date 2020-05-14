@@ -1,14 +1,13 @@
-import React, { Component, Fragment } from 'react';
-import Routes from './routes';
+import React from 'react';
+import './App.css';
+import VideoCom from './components/video';
 
-class App extends Component {
-	render() {
-		return (
-			<Fragment>
-				<Routes/>
-			</Fragment>
-		)
-	}
+function App() {
+  return (
+    <div className="App">
+      <VideoCom />
+    </div>
+  );
 }
 
 export default App;
